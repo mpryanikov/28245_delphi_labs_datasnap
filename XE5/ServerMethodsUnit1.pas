@@ -13,6 +13,7 @@ type
     { Public declarations }
     function EchoString(Value: string): string;
     function ReverseString(Value: string): string;
+    function Add(a, b: Double): Double;
   end;
 {$METHODINFO OFF}
 
@@ -30,5 +31,11 @@ function TServerMethods1.ReverseString(Value: string): string;
 begin
   Result := System.StrUtils.ReverseString(Value);
 end;
+
+function TServerMethods1.Add(a, b: Double): Double;
+begin
+  Result := a + b;
+end;
+
 end.
 
