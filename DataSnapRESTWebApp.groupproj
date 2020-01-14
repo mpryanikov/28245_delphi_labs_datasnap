@@ -6,6 +6,9 @@
         <Projects Include="XE3\DelphiLabsDataSnapRESTWebApp.dproj">
             <Dependencies/>
         </Projects>
+        <Projects Include="XE5\XE5.dproj">
+            <Dependencies/>
+        </Projects>
     </ItemGroup>
     <ProjectExtensions>
         <Borland.Personality>Default.Personality.12</Borland.Personality>
@@ -23,14 +26,23 @@
     <Target Name="DelphiLabsDataSnapRESTWebApp:Make">
         <MSBuild Projects="XE3\DelphiLabsDataSnapRESTWebApp.dproj" Targets="Make"/>
     </Target>
+    <Target Name="XE5">
+        <MSBuild Projects="XE5\XE5.dproj"/>
+    </Target>
+    <Target Name="XE5:Clean">
+        <MSBuild Projects="XE5\XE5.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="XE5:Make">
+        <MSBuild Projects="XE5\XE5.dproj" Targets="Make"/>
+    </Target>
     <Target Name="Build">
-        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp"/>
+        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp;XE5"/>
     </Target>
     <Target Name="Clean">
-        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp:Clean"/>
+        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp:Clean;XE5:Clean"/>
     </Target>
     <Target Name="Make">
-        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp:Make"/>
+        <CallTarget Targets="DelphiLabsDataSnapRESTWebApp:Make;XE5:Make"/>
     </Target>
     <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
 </Project>
